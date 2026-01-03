@@ -8,7 +8,7 @@ export default function App() {
 
   const fetchContacts = () => {
     axios
-      .get("http://localhost:5000/api/contacts")
+      .get("${process.env.REACT_APP_API_URL}/api/contacts")
       .then(res => setContacts(res.data))
       .catch(err => console.error("Backend not running"));
   };
