@@ -6,7 +6,7 @@ export default function ContactForm({ refresh }) {
     name: "",
     email: "",
     phone: "",
-    message: "" // lowercase
+    message: ""
   });
 
   const handleChange = (e) => {
@@ -14,11 +14,11 @@ export default function ContactForm({ refresh }) {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault(); // prevent page reload
+    e.preventDefault();
     try {
-      await axios.post("https://contact-manager-sirq.onrender.com/api/contacts", form);
+      await axios.post(`${process.env.REACT_APP_API_URL}/api/contacts`, form);
       setForm({ name: "", email: "", phone: "", message: "" });
-      refresh(); // refresh contact list
+      refresh(); // Refresh contact list
     } catch (err) {
       console.error("Submit failed:", err);
       alert("Failed to submit. Please try again!");
