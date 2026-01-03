@@ -6,11 +6,12 @@ import ContactList from "./components/ContactList";
 export default function App() {
   const [contacts, setContacts] = useState([]);
   const [loading, setLoading] = useState(true);
-
+  const API_URL = process.env.REACT_APP_API_URL;
+  
   const fetchContacts = async () => {
     try {
       setLoading(true);
-      const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/contacts`);
+      const res = await axios.get(`${API_URL}/api/contacts`);
       setContacts(res.data);
     } catch (err) {
       console.error("Backend not reachable:", err);
