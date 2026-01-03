@@ -5,7 +5,7 @@ export default function ContactList({ contacts, refresh }) {
   const deleteContact = async (id) => {
   try {
     console.log("Deleting ID:", id);
-    await axios.delete(`${process.env.REACT_APP_API_URL}/api/contacts/${id}`);
+    await axios.delete(`https://contact-manager-sirq.onrender.com/api/contacts/${id}`);
     refresh(); 
   } catch (error) {
     console.error("Delete failed:", error);
