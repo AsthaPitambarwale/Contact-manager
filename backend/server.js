@@ -8,7 +8,7 @@ connectDB();
 
 const app = express();
 app.use(cors({
-  origin: "https://contact-manager-udsf.vercel.app/"
+  origin: process.env.FRONTEND_URL || "*"
 }));
 app.use(express.json());
 
