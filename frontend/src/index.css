@@ -1,3 +1,4 @@
+/* Reset & Base Styles */
 * {
   margin: 0;
   padding: 0;
@@ -13,6 +14,7 @@ body {
   align-items: center;
 }
 
+/* Container */
 .container {
   background: #ffffff;
   width: 98%;
@@ -25,13 +27,23 @@ body {
   flex-direction: column;
 }
 
-h2 {
+/* Headings */
+h1, h2 {
   text-align: center;
-  margin-bottom: 25px;
   color: #2d3748;
-  font-size: 26px;
 }
 
+h1 {
+  font-size: 32px;
+  margin-bottom: 25px;
+}
+
+h2 {
+  font-size: 26px;
+  margin-bottom: 25px;
+}
+
+/* Layout */
 .layout {
   flex: 1;
   display: grid;
@@ -48,6 +60,24 @@ h2 {
   align-items: center;
 }
 
+.right {
+  background: #ffffff;
+  border-radius: 14px;
+  overflow-y: auto;
+  padding-right: 6px;
+  scroll-behavior: smooth;
+}
+
+/* Scrollbar */
+.right::-webkit-scrollbar {
+  width: 6px;
+}
+.right::-webkit-scrollbar-thumb {
+  background: #667eea;
+  border-radius: 10px;
+}
+
+/* Form Styles */
 form {
   width: 100%;
   display: flex;
@@ -73,7 +103,7 @@ form input:focus,
 form textarea:focus {
   outline: none;
   border-color: #667eea;
-  box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.15);
+  box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.25);
 }
 
 form button {
@@ -86,6 +116,11 @@ form button {
   font-size: 15px;
   font-weight: 600;
   cursor: pointer;
+  transition: 0.2s ease;
+}
+
+form button:hover:not(:disabled) {
+  background: linear-gradient(135deg, #5a67d8, #6b46c1);
 }
 
 form button:disabled {
@@ -93,22 +128,7 @@ form button:disabled {
   cursor: not-allowed;
 }
 
-.right {
-  background: #ffffff;
-  border-radius: 14px;
-  overflow-y: auto;
-  padding-right: 6px;
-}
-
-/* Scrollbar */
-.right::-webkit-scrollbar {
-  width: 6px;
-}
-.right::-webkit-scrollbar-thumb {
-  background: #667eea;
-  border-radius: 10px;
-}
-
+/* Desktop Table */
 .desktop-table {
   width: 100%;
   border-collapse: collapse;
@@ -123,7 +143,7 @@ form button:disabled {
 
 .desktop-table th,
 .desktop-table td {
-  padding: 14px;
+  padding: 14px 16px;
   text-align: left;
   font-size: 14px;
 }
@@ -151,6 +171,7 @@ form button:disabled {
   background: #c53030;
 }
 
+/* Mobile Cards */
 .mobile-cards {
   display: none;
 }
@@ -160,6 +181,11 @@ form button:disabled {
   padding: 16px;
   border-radius: 14px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease;
+}
+
+.contact-card:hover {
+  transform: translateY(-3px);
 }
 
 .contact-card h4 {
@@ -190,6 +216,11 @@ form button:disabled {
   cursor: pointer;
 }
 
+.contact-card button:hover {
+  background: #c53030;
+}
+
+/* Responsive */
 @media (max-width: 768px) {
   body {
     padding: 15px;
@@ -198,6 +229,10 @@ form button:disabled {
   .container {
     height: auto;
     padding: 20px;
+  }
+
+  h1 {
+    font-size: 28px;
   }
 
   h2 {
@@ -214,7 +249,7 @@ form button:disabled {
     padding: 20px;
   }
 
-  /* Switch UI */
+  /* Switch Table to Mobile Cards */
   .desktop-table {
     display: none;
   }
@@ -223,5 +258,9 @@ form button:disabled {
     display: flex;
     flex-direction: column;
     gap: 15px;
+  }
+
+  .mobile-cards .contact-card:last-child {
+    margin-bottom: 20px;
   }
 }
