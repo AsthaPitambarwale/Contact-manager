@@ -1,17 +1,20 @@
 import React from "react";
 import axios from "axios";
 
+const API_URL = "https://contact-manager-dgpm.onrender.com";
+
 export default function ContactList({ contacts, refresh }) {
-  const API_URL = process.env.REACT_APP_API_URL;
+
   const deleteContact = async (id) => {
-  try {
-    console.log("Deleting ID:", id);
-    await axios.delete(`${API_URL}/api/contacts/${id}`);
-    refresh(); 
-  } catch (error) {
-    console.error("Delete failed:", error);
-  }
-};
+    try {
+      console.log("Deleting ID:", id);
+      await axios.delete(`${API_URL}/api/contacts/${id}`);
+      refresh();
+    } catch (error) {
+      console.error("Delete failed:", error);
+      alert("Delete failed");
+    }
+  };
 
   return (
     <>
@@ -32,9 +35,11 @@ export default function ContactList({ contacts, refresh }) {
               <td>{c.name}</td>
               <td>{c.email}</td>
               <td>{c.phone}</td>
-              <td>{c.Message}</td>
+              <td>{c.message}</td>
               <td>
-                <button onClick={() => deleteContact(contact._id)}>Delete</button>
+                <button onClick={() => deleteContact(c._id)}>
+                  Delete
+                </button>
               </td>
             </tr>
           ))}
@@ -48,8 +53,10 @@ export default function ContactList({ contacts, refresh }) {
             <h4>{c.name}</h4>
             <p>{c.email}</p>
             <p>{c.phone}</p>
-            <p className="msg">{c.Message}</p>
-            <button onClick={() => deleteContact(contact._id)}>Delete</button>
+            <p className="msg">{c.message}</p>
+            <button onClick={() => deleteContact(c._id)}>
+              Delete
+            </button>
           </div>
         ))}
       </div>
