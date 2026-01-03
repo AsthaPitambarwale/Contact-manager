@@ -1,14 +1,11 @@
 # Contact Manager (MERN Stack)
-A modern, responsive **Contact Manager** application built using the MERN stack. The app allows users to create, view, search, and delete contacts with a clean desktop UI and a mobile‑first card layout.
+A modern, responsive **Contact Manager** application built using the MERN stack. The app allows users to create, view and delete contacts with a clean desktop UI.
 
 ## 🚀 Features
 
 * Add new contacts (Name, Email, Phone, Message)
 * View contacts in a responsive table (desktop)
 * Mobile‑friendly card UI
-* Real‑time search & filter
-* Loading skeletons for better UX
-* Toast notifications for actions
 * MongoDB Atlas cloud database
 * Fully responsive design
 
@@ -44,7 +41,6 @@ contact-manager/
     │   ├── components/
     │   │   ├── ContactForm.jsx
     │   │   ├── ContactList.jsx
-    │   │   └── Skeleton.jsx
     │   ├── App.jsx
     │   ├── main.jsx
     │   └── index.css
