@@ -8,7 +8,7 @@ export default function App() {
 
   const fetchContacts = () => {
     axios
-      .get("${process.env.REACT_APP_API_URL}/api/contacts")
+      .get("https://contact-manager-sirq.onrender.com/api/contacts")
       .then(res => setContacts(res.data))
       .catch(err => console.error("Backend not running"));
   };
