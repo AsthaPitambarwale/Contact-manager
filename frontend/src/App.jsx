@@ -3,11 +3,12 @@ import axios from "axios";
 import ContactForm from "./components/ContactForm";
 import ContactList from "./components/ContactList";
 
+const API_URL = "https://contact-manager-dgpm.onrender.com";
+
 export default function App() {
   const [contacts, setContacts] = useState([]);
   const [loading, setLoading] = useState(true);
-  const API_URL = process.env.REACT_APP_API_URL;
-  
+
   const fetchContacts = async () => {
     try {
       setLoading(true);
