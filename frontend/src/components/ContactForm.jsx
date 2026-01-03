@@ -15,7 +15,7 @@ export default function ContactForm({ refresh }) {
 
   const submit = async e => {
     e.preventDefault();
-    await axios.post("${process.env.REACT_APP_API_URL}/api/contacts", form);
+    await axios.post("https://contact-manager-sirq.onrender.com/api/contacts", form);
     setForm({ name: "", email: "", phone: "", Message: "" });
     refresh();
   };
